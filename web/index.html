@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Santiago - Gotico</title>
+        <link rel="stylesheet" href="css/master.css" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                mostrarFotos();
+            });
+            
+            function foto(pos){
+                var str = '<div ">';
+                str +=  '<img style="width:40%; class="img" src="img/foto' +pos + '.jpg" border="0" />';
+                str += '</div>';
+                $("#galery").html(str);
+            }
+            function mostrarFotos(){
+                $.ajax({
+                    url: "data/fotos.json",
+                    success: function(datos){
+                        var oJson=eval(datos);
+                        $("#galery").empty();
+                        $.each(oJson, function (i, item ){
+                            var str='<div>';
+                            str += '<a href="#" onclick="foto(\''+ item.pos+'\')">';
+                            str += '<img class="imagen img-thumbnail" src="img/'+ item.img +'"/>';
+                            str += '</a>';
+                            str += '</div>';
+                            $("#galery").append(str);
+                        
+                        });
+                    }
+                });
+                    
+                
+            }
+        </script>
+    </head>
+    <body class="fondo1">
+        <div class="container fondo1">
+           <!-- <input type="button" value="Volver" onclick="mostrarFotos()"/>-->
+            <h3 class="titulo cen ">
+                <span class="glyphicon glyphicon-plus"></span>
+                Santiago y el Arte Gótico
+            <span class="glyphicon glyphicon-plus"></span>
+            </h3>
+           <div><button class="btn btn-default" onclick="mostrarFotos()">Galería</button></div>
+            <div class=" panel-body fondo1" id="galery">
+               <!-- <div class="fondo1">
+                    
+                    <img class="imagen img-thumbnail" src="img/foto01.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto02.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto03.jpg">
+                
+              
+                    <img class="imagen img-thumbnail" src="img/foto04.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto05.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto06.jpg">
+            
+               
+                    <img class="imagen img-thumbnail" src="img/foto07.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto08.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto09.jpg">
+             
+               
+                    <img class="imagen img-thumbnail" src="img/foto10.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto11.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto12.jpg">
+                
+                
+                    <img class="imagen img-thumbnail" src="img/foto13.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto14.jpg">
+                    <img class="imagen img-thumbnail" src="img/foto15.jpg">
+                
+                    </div>-->
+            </div>
+        </div>
+            
+        <div class="fondo2 panel panel-footer pie">
+            
+            <p class="alert-danger cen">Para más información visitar</p>
+            <div class="cen">
+            <a href="https://www.youtube.com/watch?v=WUWKHdhWCtg" target="_blank">Canciones Góticas</a>
+            </div> 
+            <div class="cen">
+            <a href="https://www.youtube.com/watch?v=2HVDyz0U8mg" target="_blank">Animaciones Góticas</a>
+            </div> 
+            <div class="cen">
+            <a href="https://www.youtube.com/watch?v=mC9mFPki0BY" target="_blank">Heróe Gótico</a>
+            </div> 
+        </div>
+    </body>
+</html>

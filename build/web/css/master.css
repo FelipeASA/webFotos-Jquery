@@ -1,0 +1,48 @@
+
+.cen { text-align: center; }
+.izda { text-align: left; }
+.dcha { text-align: right; }
+.jus { text-align: justify; }
+
+.top { vertical-align: top; }
+.mid { vertical-align: middle; }
+.bot { vertical-align: bottom; }
+
+
+
+.imagen{
+    
+    float: left;
+    width: 31%;
+    margin: 1%;
+   
+    
+}
+
+#column1{
+    background-color: #843534;
+}
+
+.titulo{
+    color:#843534;
+    background-color: #9d9d9d;
+    padding: 20px;
+    glyphicon: glyphicon-plus
+    
+}
+
+img:hover{
+    opacity: 0.7
+}
+
+.fondo1{
+    background-color: #000;
+}
+
+.fondo2{
+    background-color: #000;
+}
+
+#column1{
+    background-color: #843534;
+}
